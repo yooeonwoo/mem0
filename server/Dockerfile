@@ -9,6 +9,9 @@ RUN pip install --no-cache-dir psycopg2-binary
 
 COPY . .
 
+# Create history directory for SQLite database
+RUN mkdir -p /app/history
+
 EXPOSE 8000
 
 ENV PYTHONUNBUFFERED=1
