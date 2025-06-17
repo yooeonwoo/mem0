@@ -36,19 +36,12 @@ HISTORY_DB_PATH = os.environ.get("HISTORY_DB_PATH", "/app/history/history.db")
 DEFAULT_CONFIG = {
     "version": "v1.1",
     "vector_store": {
-        "provider": "pgvector",
+        "provider": "qdrant",
         "config": {
-            "host": POSTGRES_HOST,
-            "port": int(POSTGRES_PORT),
-            "dbname": POSTGRES_DB,
-            "user": POSTGRES_USER,
-            "password": POSTGRES_PASSWORD,
-            "collection_name": POSTGRES_COLLECTION_NAME,
+            "host": "qdrant",
+            "port": 6333,
+            "collection_name": "mem0",
         },
-    },
-    "graph_store": {
-        "provider": "neo4j",
-        "config": {"url": NEO4J_URI, "username": NEO4J_USERNAME, "password": NEO4J_PASSWORD},
     },
     "llm": {"provider": "openai", "config": {"api_key": OPENAI_API_KEY, "temperature": 0.2, "model": "gpt-4o"}},
     "embedder": {"provider": "openai", "config": {"api_key": OPENAI_API_KEY, "model": "text-embedding-3-small"}},
